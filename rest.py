@@ -5,7 +5,7 @@ import json
 
 
 #make the flask object
-app = Flask()
+app = Flask(__name__)
 
 
 #bind to a route
