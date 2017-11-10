@@ -4,11 +4,11 @@
         <title>Photo of the Day</title>
     </head>
     <body>
-        <h1>{{ title }}</h1>
+        <h1>{{ p.title }}</h1>
         <figure>
-            <img src="{{ url }}" />
-            <figcaption>Taken by {{ copyright }}, selected {{ date }}</figcaption>
+            <img src="{{ p.url }}" />
+            <figcaption>Taken by <u>{{ p.copyright }}</u>, selected {{ p.date }}</figcaption>
         </figure>
-        <p>{{ explanation }}</p>
+        <p>{{ p.explanation }}</p>
     </body>
 </html>
