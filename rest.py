@@ -11,7 +11,10 @@ app = Flask(__name__)
 #bind to a route
 @app.route('/')
 def home_route():
-    return render_template("index.html")
+    request = urllib2.urlopen("https://api.nasa.gov/planetary/apod?api_key=cQud53en8RollBuMSxaEGZ6Foydigx51KDWmgTKr")
+    string = request.read()
+    dictionary = json.loads(string)
+    return render_template("index.html", p = dictionary)
 
 
 #start the Flask server
