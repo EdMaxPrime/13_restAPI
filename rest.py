@@ -11,9 +11,12 @@ app = Flask(__name__)
 #bind to a route
 @app.route('/')
 def home_route():
-    request = urllib2.urlopen("https://api.nasa.gov/planetary/apod?api_key=cQud53en8RollBuMSxaEGZ6Foydigx51KDWmgTKr")
+    request = urllib2.urlopen("https://www.nationstates.net/cgi-bin/api.cgi?q=newnations")
     xml_string = request.read()
-    return ""
+    dom = parseString(xml_string)
+    list_of_nations = getText(dom, ["NEWNATIONS"])
+    dom.unlink()
+    return list_of_nations
 
 def getText(element, listOfTags):
     if len(listOfTags) == 0:
