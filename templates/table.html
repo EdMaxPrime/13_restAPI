@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nation States</title>
+    </head>
+    <body>
+        <h1>Newest Countries</h1>
+        <h2>Note: do not reload this page more than once per minute</h2>
+        <table border="1">
+            <tr>
+                {% for cat in categories %}
+                    <th>{{ cat }}</th>
+                {% endfor %}
+            </tr>
+            {% for nation in nations %}
+                <tr>
+                {% for cat in categories %}
+                    {% if cat != "Flag" %}
+                    <td>{{ nation[cat] }}</td>
+                    {% else %}
+                    <td><img src="{{ nation.Flag }}" /></td>
+                    {% endif %}
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
